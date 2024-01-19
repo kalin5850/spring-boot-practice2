@@ -24,8 +24,16 @@ public class CruddemoApplication {
 		return runner -> {
 			// createStudent(studentDAO);
 			// createMultipleStudents(studentDAO);
-			readStudent(10, studentDAO);
+			// readStudent(10, studentDAO);
+			getAllStudents(studentDAO);
 		};
+	}
+
+	private void getAllStudents(StudentDAO studentDAO) {
+		List<Student> students = studentDAO.findAll();
+		for (Student student : students) {
+			System.out.println(student);
+		}
 	}
 
 	private void readStudent(Integer id, StudentDAO studentDAO) {
