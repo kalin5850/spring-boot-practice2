@@ -27,14 +27,26 @@ public class CruddemoApplication {
 			// readStudent(10, studentDAO);
 			// getAllStudents(studentDAO);
 			// getStudentByLastName(studentDAO, "Chang");
-			updateStudent(studentDAO);
+			// updateStudent(studentDAO);
+			// deleteStudent(studentDAO);
+			removeAllStudent(studentDAO);
 		};
+	}
+
+	private void removeAllStudent(StudentDAO studentDAO) {
+		int num = studentDAO.deleteAllStudents();
+		System.out.println("Number of students be deleting: " + num);
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 1;
+		studentDAO.delete(studentId);
 	}
 
 	private void updateStudent(StudentDAO studentDAO) {
 		int studentId = 1;
 		Student student = studentDAO.findById(studentId);
-		student.setFirstName("Kai");
+		student.setFirstName("KaiLin");
 		studentDAO.update(student);
 	}
 
