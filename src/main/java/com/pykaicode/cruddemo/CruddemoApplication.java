@@ -26,8 +26,16 @@ public class CruddemoApplication {
 			// createMultipleStudents(studentDAO);
 			// readStudent(10, studentDAO);
 			// getAllStudents(studentDAO);
-			getStudentByLastName(studentDAO, "Chang");
+			// getStudentByLastName(studentDAO, "Chang");
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int studentId = 1;
+		Student student = studentDAO.findById(studentId);
+		student.setFirstName("Kai");
+		studentDAO.update(student);
 	}
 
 	private void getStudentByLastName(StudentDAO studentDAO, String lastName) {
